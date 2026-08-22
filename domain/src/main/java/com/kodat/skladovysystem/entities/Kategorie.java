@@ -25,7 +25,10 @@ public class Kategorie {
     @OneToMany(mappedBy = "nadkategorie")
     private List<Kategorie> podKategorie = new ArrayList<>();
 
-    private void pridatKategorie(Kategorie kategorie){
+    @OneToMany(mappedBy = "kategorie")
+    private List<Produkt> produkty = new ArrayList<>();
+
+    public void pridatKategorie(Kategorie kategorie){
         podKategorie.add(kategorie);
         kategorie.setNadkategorie(this);
     }

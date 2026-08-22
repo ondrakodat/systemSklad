@@ -4,9 +4,10 @@ package com.kodat.skladovysystem.enums;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-public enum Role {
-    ADMIN,
-    VEDOUCI_SKLADU,
-    SKLADNIK,
-    MANAZER
+
+public enum StavRezervace {
+    AKTIVNI,
+    VYRIZENA,
+    ZRUSENA,
+    EXPIROVANA
 }
