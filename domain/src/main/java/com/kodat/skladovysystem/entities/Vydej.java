@@ -21,8 +21,11 @@ public class Vydej {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String cisloVydaje;
+    @Column(nullable = false)
     private LocalDateTime datum;
+    @Column(length = 200)
     private String poznamka;
     @ManyToOne
     private Sklad sklad;

@@ -15,6 +15,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PolozkaVydeje extends Polozka{
     @ManyToOne
-    @JoinColumn(name = "vydej_id")
+    @JoinColumn(name = "vydej_id", nullable = false)
     private Vydej vydej;
 }

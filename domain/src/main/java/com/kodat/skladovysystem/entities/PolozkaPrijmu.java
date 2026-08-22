@@ -15,7 +15,7 @@ import lombok.Setter;
 @Table(name = "polozka_prijmu")
 public class PolozkaPrijmu extends Polozka{
     @ManyToOne
-    @JoinColumn(name = "prijem_id")
+    @JoinColumn(name = "prijem_id", nullable = false)
     private Prijem prijem;
 
 }

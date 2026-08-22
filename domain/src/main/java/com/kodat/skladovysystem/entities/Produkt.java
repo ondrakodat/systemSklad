@@ -1,6 +1,7 @@
 package com.kodat.skladovysystem.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,10 +25,14 @@ public class Produkt {
     @ManyToOne
     @JoinColumn(name = "kategorie_id")
     private Kategorie kategorie;
+    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private BigDecimal cena;
+    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private BigDecimal nakupniCena;
+    @PositiveOrZero
     private int minimalniSkladovaneMnozstvi;
     private String ean;
+    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private double hmotnost;
     private boolean stav;
     private LocalDateTime datumVytvoreni;

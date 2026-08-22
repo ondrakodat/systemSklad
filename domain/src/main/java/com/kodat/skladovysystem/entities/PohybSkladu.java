@@ -12,20 +12,24 @@ public class PohybSkladu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private int mnozstvi;
+    @Column(nullable = false)
     private LocalDateTime datum;
+    @Column(nullable = false, length = 200)
     private String poznamka;
     @Enumerated(EnumType.STRING)
     private TypPohybu typPohybu;
     @ManyToOne
-    @JoinColumn(name="produkt_id")
+    @JoinColumn(name="produkt_id", nullable = false)
     private Produkt produkt;
     @ManyToOne
-    @JoinColumn(name="sklad_id")
+    @JoinColumn(name="sklad_id", nullable = false)
     private Sklad sklad;
     @ManyToOne
-    @JoinColumn(name="zamestnanec_id")
+    @JoinColumn(name="zamestnanec_id", nullable = false)
     private Zamestnanec zamestnanec;
+    @Column(nullable = false, length = 50)
     private String cisloDokladu;
 
 }

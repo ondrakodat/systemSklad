@@ -22,18 +22,20 @@ public class Presun {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String cisloPresunu;
+    @Column(nullable = false)
     private LocalDateTime datum;
     @Enumerated(EnumType.STRING)
     private StavPresunu stav;
     @ManyToOne
-    @JoinColumn(name="zdrojovy_sklad_id")
+    @JoinColumn(name="zdrojovy_sklad_id", nullable = false)
     private Sklad zdrojovySklad;
     @ManyToOne
-    @JoinColumn(name="cilovy_sklad_id")
+    @JoinColumn(name="cilovy_sklad_id", nullable = false)
     private Sklad cilovySklad;
     @ManyToOne
-    @JoinColumn(name="zamestnanec_id")
+    @JoinColumn(name="zamestnanec_id", nullable = false)
     private Zamestnanec zamestnanec;
     @OneToMany(mappedBy="presun", cascade = CascadeType.ALL)
     private List<PolozkaPresunu> polozky = new ArrayList<>();

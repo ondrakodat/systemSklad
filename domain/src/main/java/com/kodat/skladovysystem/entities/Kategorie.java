@@ -16,15 +16,13 @@ public class Kategorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false, length = 100)
     private String nazev;
-
     @ManyToOne
-    @JoinColumn(name = "rodic_id")
+    @JoinColumn(name = "rodic_id", nullable = true)
     private Kategorie nadkategorie;
-
     @OneToMany(mappedBy = "nadkategorie")
     private List<Kategorie> podKategorie = new ArrayList<>();
-
     @OneToMany(mappedBy = "kategorie")
     private List<Produkt> produkty = new ArrayList<>();
 

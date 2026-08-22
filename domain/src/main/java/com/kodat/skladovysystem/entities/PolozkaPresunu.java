@@ -10,6 +10,6 @@ import jakarta.persistence.Table;
 @Table(name = "polozka_presunu")
 public class PolozkaPresunu extends Polozka{
     @ManyToOne
-    @JoinColumn(name = "presun_id")
+    @JoinColumn(name = "presun_id", nullable = false)
     private Presun presun;
 }

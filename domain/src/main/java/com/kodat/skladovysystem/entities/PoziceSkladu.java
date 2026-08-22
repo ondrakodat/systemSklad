@@ -17,9 +17,11 @@ public class PoziceSkladu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String kod;
+    @Column(length = 200, nullable = true)
     private String popis;
     @ManyToOne
-    @JoinColumn(name = "sklad_id")
+    @JoinColumn(name = "sklad_id", nullable = false)
     private Sklad sklad;
 }
