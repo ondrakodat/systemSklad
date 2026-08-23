@@ -30,4 +30,6 @@ public class Zamestnanec {
     private Role role;
     private String heslo;
     private boolean aktivni;
+    @Column(name = "profilova_fotka")
+    private String profilovaFotka;
 }

@@ -31,7 +31,7 @@ public class Vydej {
     private Sklad sklad;
     @ManyToOne
     private Zamestnanec zamestnanec;
-    @OneToMany(mappedBy = "prijem", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vydej", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PolozkaVydeje> polozkyVydaje = new ArrayList<>();
 
 
