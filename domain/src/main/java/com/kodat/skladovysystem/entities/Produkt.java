@@ -26,16 +26,16 @@ public class Produkt {
     @JoinColumn(name = "kategorie_id")
     private Kategorie kategorie;
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
-    private BigDecimal cena;
+    private BigDecimal cena = BigDecimal.valueOf(0);
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
-    private BigDecimal nakupniCena;
+    private BigDecimal nakupniCena = BigDecimal.valueOf(0);
     @PositiveOrZero
     private int minimalniSkladovaneMnozstvi;
-    private String ean;
+    private String ean = "";
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
-    private double hmotnost;
-    private boolean stav;
-    private LocalDateTime datumVytvoreni;
+    private double hmotnost = 0;
+    private boolean stav = false;
+    private LocalDateTime datumVytvoreni = LocalDateTime.now();
     private LocalDateTime datumPosledniZmeny;
     @OneToMany(mappedBy = "produkt")
     private List<Inventar> inventare = new ArrayList<>();
@@ -44,4 +44,8 @@ public class Produkt {
     @OneToMany(mappedBy = "produkt")
     private List<PohybSkladu> pohyby = new ArrayList<>();
 
+
+
 }
+
+
