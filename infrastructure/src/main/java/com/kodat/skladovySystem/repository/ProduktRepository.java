@@ -1,5 +1,6 @@
 package com.kodat.skladovySystem.repository;
 
+import com.kodat.skladovysystem.entities.Kategorie;
 import com.kodat.skladovysystem.entities.Produkt;
 import com.kodat.skladovysystem.interfaces.Irepository.IProduktRepository;
 import org.springframework.stereotype.Repository;
@@ -9,9 +10,9 @@ import java.util.List;
 
 @Repository
 public class ProduktRepository implements IProduktRepository {
-    private final IProduktJpaRepository _iproduktJpaRepository;
+    private final JpaProduktRepository _iproduktJpaRepository;
 
-    public ProduktRepository(IProduktJpaRepository _iproduktJpaRepository) {
+    public ProduktRepository(JpaProduktRepository _iproduktJpaRepository) {
         this._iproduktJpaRepository = _iproduktJpaRepository;
     }
 
@@ -36,6 +37,11 @@ public class ProduktRepository implements IProduktRepository {
     @Override
     public void pridej(Produkt produkt) {
         _iproduktJpaRepository.save(produkt);
+    }
+
+    @Override
+    public Kategorie najdiKategoriiPodleId(long id) {
+     return null;
     }
 
 

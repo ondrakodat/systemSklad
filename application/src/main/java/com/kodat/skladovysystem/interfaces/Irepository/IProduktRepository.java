@@ -1,5 +1,6 @@
 package com.kodat.skladovysystem.interfaces.Irepository;
 
+import com.kodat.skladovysystem.entities.Kategorie;
 import com.kodat.skladovysystem.entities.Produkt;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface IProduktRepository {
     List<Produkt> najdiVsechny();
     void odeberProduktpodleId (Long id);
     void pridej(Produkt produkt);
+    Kategorie najdiKategoriiPodleId(long id);
 }
