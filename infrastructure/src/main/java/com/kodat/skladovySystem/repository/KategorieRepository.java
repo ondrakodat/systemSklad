@@ -20,7 +20,7 @@ public class KategorieRepository implements IKategorieRepository {
 
     @Override
     public Long najdiIdKategorie(Kategorie kategorie) {
-        return _IKategorieJpaRepository.fi
+        return 0L;
     }
 
 
