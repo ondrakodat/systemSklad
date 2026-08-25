@@ -18,7 +18,7 @@ public class ProduktRepository implements IProduktRepository {
 
     @Override
     public Produkt najdiPodleId(Long id) {
-        return _iproduktJpaRepository.findById(id).orElseThrow(() -> new RuntimeException("Produkt neexistuje"));
+        return _iproduktJpaRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -29,10 +29,7 @@ public class ProduktRepository implements IProduktRepository {
 
     @Override
     public void odeberProduktpodleId(Long id) {
-        Produkt produkt = _iproduktJpaRepository.findById(id).orElse(null);
-        if(produkt != null) {
             _iproduktJpaRepository.deleteById(id);
-        }
     }
 
     @Override
@@ -40,20 +37,9 @@ public class ProduktRepository implements IProduktRepository {
         _iproduktJpaRepository.save(produkt);
     }
 
-
-
     @Override
-    public void upravProdukt(Produkt produkt, long id) {
-        Produkt p = _iproduktJpaRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Produkt nebyl nalezen"));
-        p.setNazev(produkt.getNazev());
-        p.setCena(produkt.getCena());
-        p.setPopis(produkt.getPopis());
-        p.setKategorie(produkt.getKategorie());
-        p.setMinimalniSkladovaneMnozstvi(produkt.getMinimalniSkladovaneMnozstvi());
-
-        _iproduktJpaRepository.save(p);
+    public void upravProdukt(Produkt produkt) {
+        _iproduktJpaRepository.save(produkt);
     }
 
 

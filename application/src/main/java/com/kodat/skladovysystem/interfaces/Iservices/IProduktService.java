@@ -7,7 +7,8 @@ import java.util.List;
 public interface IProduktService {
     void pridejProduktDto(ProduktDto produkt);
     ProduktDto najdiPodleId(Long id);
-    void OdeberPodleId(Long id);
+    void odeberPodleId(Long id);
     List<ProduktDto> najdiVsechny();
+    void upravProdukt(ProduktDto produkt, Long id);
 
 }

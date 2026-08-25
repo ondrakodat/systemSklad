@@ -68,7 +68,11 @@ public class ProduktService implements IProduktService {
     }
 
     @Override
-    public void OdeberPodleId(Long id) {
+    public void odeberPodleId(Long id) {
+        Produkt p = _IproduktRepository.najdiPodleId(id);
+        if(p == null){
+            throw new RuntimeException("Produkt neexistuje");
+        }
         _IproduktRepository.odeberProduktpodleId(id);
     }
 
@@ -80,20 +84,52 @@ public class ProduktService implements IProduktService {
            ProduktDto produktD = new ProduktDto();
            produktD.setNazev(p.getNazev());
            String popis = p.getPopis();
+
            if(popis != null){
                produktD.setPopis(popis);
            }else{
                produktD.setPopis("");
            }
+
+
            produktD.setCena(p.getCena());
            produktD.setNakupniCena(p.getNakupniCena());
            produktD.setMinimalniSkladovaneMnozstvi(p.getMinimalniSkladovaneMnozstvi());
            produktD.setEan(p.getEan());
            produktD.setHmotnost(p.getHmotnost());
-           produktD.setKategorieId(p.getKategorie().getId());
+
+           if(p.getKategorie() == null){
+               produktD.setKategorieId(null);
+           }else{
+               produktD.setKategorieId(p.getKategorie().getId());
+
+           }
            produktyDto.add(produktD);
 
        }
        return produktyDto;
+    }
+
+    @Override
+    public void upravProdukt(ProduktDto produkt, Long id) {
+        Produkt existujiciProdukt = _IproduktRepository.najdiPodleId(id);
+
+        if(existujiciProdukt == null) {
+            throw new RuntimeException("Produkt neexistuje");
+        }
+
+        existujiciProdukt.setNazev(produkt.getNazev());
+        existujiciProdukt.setMinimalniSkladovaneMnozstvi(produkt.getMinimalniSkladovaneMnozstvi());
+        existujiciProdukt.setHmotnost(produkt.getHmotnost());
+        existujiciProdukt.setNakupniCena(produkt.getNakupniCena());
+        existujiciProdukt.setCena(produkt.getCena());
+        existujiciProdukt.setPopis(produkt.getPopis());
+        existujiciProdukt.setEan(produkt.getEan());
+
+        Long kategorieId = produkt.getKategorieId();
+        Kategorie kategorie = _IkategorieRepository.najdiKategoriiPodleId(kategorieId);
+        existujiciProdukt.setKategorie(kategorie);
+        _IproduktRepository.upravProdukt(existujiciProdukt);
+
     }
 }

@@ -10,5 +10,5 @@ public interface IProduktRepository {
     List<Produkt> najdiVsechny();
     void odeberProduktpodleId (Long id);
     void pridej(Produkt produkt);
-    void upravProdukt(Produkt produkt,long id);
+    void upravProdukt(Produkt produkt);
 }

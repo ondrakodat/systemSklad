@@ -3,10 +3,7 @@ package com.kodat.skladovysystem.controller;
 
 import com.kodat.skladovysystem.Dto.ProduktDto;
 import com.kodat.skladovysystem.interfaces.Iservices.IProduktService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,19 +17,36 @@ public class ProduktController {
         this._iProduktService = _iProduktService;
     }
 
-    @RequestMapping("/{id}")
+
+    @GetMapping("/{id}")
     public ProduktDto dejProdukt(@PathVariable Long id){
-        ProduktDto produkt = _iProduktService.najdiPodleId(id);
-        if(produkt == null){
-            throw new RuntimeException("Produkt se nepodařilo najít");
-        }
-        return produkt;
+        return _iProduktService.najdiPodleId(id);
     }
 
     @GetMapping
-    public List<ProduktDto> dejVsechny(){
+    public List<ProduktDto> dejVsechny()
+    {
         return _iProduktService.najdiVsechny();
     }
 
+    @PutMapping("/{id}")
+    public void upravProdukt(
+            @RequestBody ProduktDto produktDto,
+            @PathVariable Long id
+    ){
+        _iProduktService.upravProdukt(produktDto, id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void smazProdukt(
+           @PathVariable Long id){
+        _iProduktService.odeberPodleId(id);
+    }
+
+    @PostMapping
+    public void pridejProdukt(
+           @RequestBody ProduktDto produkt){
+        _iProduktService.pridejProduktDto(produkt);
+    }
 
 }
