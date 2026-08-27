@@ -29,7 +29,7 @@ public class KategorieController {
     ){
         return _kategorieService.dejKategorieDtoPodleId(id);
     }
-
+    //zkouska commitu
     @PutMapping("/{id}")
     public void upravKategorii(
             @RequestBody KategorieDto dto,
