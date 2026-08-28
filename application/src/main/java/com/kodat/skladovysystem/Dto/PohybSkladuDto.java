@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PohybSkladuDto {
-    private long id;
+    //private long id;
     private int mnozstvi;
     private LocalDateTime datum;
     private String poznamka;

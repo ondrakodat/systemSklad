@@ -15,13 +15,13 @@ import java.util.List;
 @Service
 public class PohybSkladuService implements IPohybSkladuService {
     private final IPohybSkladuRepository _IpohybSkladuRepository;
-    private final IProduktRepository IproduktRepository;
+    private final IProduktRepository _IproduktRepository;
     private final ISkladRepository _IskladRepository;
     private final IZamestnanecRepository _IzamestnanecRepository;
 
     public PohybSkladuService(IPohybSkladuRepository ipohybSkladuRepository, IProduktRepository iproduktRepository, ISkladRepository iskladRepository, IZamestnanecRepository izamestnanecRepository) {
         _IpohybSkladuRepository = ipohybSkladuRepository;
-        IproduktRepository = iproduktRepository;
+        _IproduktRepository = iproduktRepository;
         _IskladRepository = iskladRepository;
         _IzamestnanecRepository = izamestnanecRepository;
     }
@@ -71,22 +71,60 @@ public class PohybSkladuService implements IPohybSkladuService {
         PohybSkladu pohyb = new PohybSkladu();
         pohyb.setCisloDokladu(dto.getCisloDokladu());
         pohyb.setDatum(dto.getDatum());
-        pohyb.setId(dto.getId());
         pohyb.setMnozstvi(dto.getMnozstvi());
         pohyb.setPoznamka(dto.getPoznamka());
-        pohyb.setProdukt(IproduktRepository
+        if(_IproduktRepository.najdiPodleId(dto.getProdukt_id()) != null)
+        pohyb.setProdukt(_IproduktRepository
                 .najdiPodleId(dto
                         .getProdukt_id()));
+        else
+            throw new RuntimeException("Nenalezen produkt pri mapovani pohybu skladu");
+
+        if(_IskladRepository.najdiSkladPodleId(dto.getSklad_id()) != null)
         pohyb.setSklad(_IskladRepository
                 .najdiSkladPodleId(dto
                         .getSklad_id()));
+        else
+            throw new RuntimeException("Nenalezen sklad pri mapovani pohybu skladu");
+
+        if(_IzamestnanecRepository.dejZamestnancePodleId(dto.getZamestnanec_id()) != null)
         pohyb.setZamestnanec(_IzamestnanecRepository
                 .dejZamestnancePodleId(dto
                         .getZamestnanec_id()));
+        else
+            throw new RuntimeException("Nenalezen zamestnanec pri mapovani pohybu skladu");
+
         return pohyb;
     }
     private PohybSkladuDto namapujNaPohybSkladuDto(PohybSkladu pohyb){
         PohybSkladuDto dto = new PohybSkladuDto();
+        dto.setCisloDokladu(pohyb.getCisloDokladu());
+        dto.setDatum(pohyb.getDatum());
+        dto.setMnozstvi(pohyb.getMnozstvi());
+        dto.setPoznamka(pohyb.getPoznamka());
+
+        if(pohyb.getProdukt() != null)
+        dto.setProdukt_id(pohyb
+                .getProdukt()
+                .getId());
+        else
+            dto.setProdukt_id(null);
+
+        if(pohyb.getZamestnanec() != null)
+        dto.setZamestnanec_id(pohyb
+                .getZamestnanec()
+                .getId());
+        else
+            dto.setZamestnanec_id(null);
+
+        if(pohyb.getSklad() != null){
+            dto.setSklad_id(pohyb
+                    .getSklad()
+                    .getId());
+        }
+        else
+            dto.setSklad_id(null);
+
         return dto;
     }
 
