@@ -3,11 +3,19 @@ package com.kodat.skladovysystem.entities;
 
 import com.kodat.skladovysystem.enums.TypPohybu;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pohyb_skladu")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PohybSkladu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
