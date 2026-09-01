@@ -6,6 +6,8 @@ import com.kodat.skladovysystem.interfaces.Irepository.ISkladRepository;
 import com.kodat.skladovysystem.interfaces.Iservices.ISkladService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SkladService implements ISkladService {
     private final ISkladRepository _IskladRepository;
@@ -18,5 +20,33 @@ public class SkladService implements ISkladService {
     public SkladDto dejSkladPodleId(long id) {
         SkladDto dto = new SkladDto();
         return dto;
+    }
+
+    @Override
+    public List<SkladDto> dejSklady() {
+        return null;
+    }
+
+    @Override
+    public void pridejSklad(SkladDto sklad) {
+
+    }
+
+    @Override
+    public void odeberSkladPodleId(long id) {
+
+    }
+
+    @Override
+    public void upravSkladPodleID(SkladDto dto, long id) {
+
+    }
+
+    private Sklad upravSkladZDto(SkladDto dto){
+        return null;
+    }
+
+    private SkladDto upravSkladNaDto(Sklad sklad){
+        return null;
     }
 }
