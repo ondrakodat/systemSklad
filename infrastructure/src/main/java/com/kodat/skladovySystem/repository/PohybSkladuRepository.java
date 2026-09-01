@@ -2,9 +2,10 @@ package com.kodat.skladovySystem.repository;
 
 import com.kodat.skladovysystem.entities.PohybSkladu;
 import com.kodat.skladovysystem.interfaces.Irepository.IPohybSkladuRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class PohybSkladuRepository implements IPohybSkladuRepository {
     private final JpaPohybSkladuRepository _jpaPohybSkladuRepository;
 

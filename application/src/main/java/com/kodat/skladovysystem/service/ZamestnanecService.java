@@ -4,10 +4,12 @@ import com.kodat.skladovysystem.Dto.ZamestnanecDto;
 import com.kodat.skladovysystem.entities.Zamestnanec;
 import com.kodat.skladovysystem.interfaces.Irepository.IZamestnanecRepository;
 import com.kodat.skladovysystem.interfaces.Iservices.IZamestnanecService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ZamestnanecService implements IZamestnanecService {
     private final IZamestnanecRepository _IZamestnaecRepository;
 

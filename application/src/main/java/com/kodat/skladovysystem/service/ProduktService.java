@@ -91,7 +91,7 @@ public class ProduktService implements IProduktService {
                produktD.setPopis("");
            }
 
-
+           produktD.setId(p.getId());
            produktD.setCena(p.getCena());
            produktD.setNakupniCena(p.getNakupniCena());
            produktD.setMinimalniSkladovaneMnozstvi(p.getMinimalniSkladovaneMnozstvi());

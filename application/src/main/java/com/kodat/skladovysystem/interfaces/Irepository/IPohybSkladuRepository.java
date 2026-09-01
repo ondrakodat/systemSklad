@@ -4,6 +4,7 @@ import com.kodat.skladovysystem.entities.PohybSkladu;
 
 import java.util.List;
 
+
 public interface IPohybSkladuRepository {
     PohybSkladu vypisPohybPodleId(Long id);
     void odeberPohybSkladuPodleId(Long id);
