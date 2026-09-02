@@ -22,10 +22,10 @@ export async function apiGet<T>(url: string): Promise <T> {
 * TResponse
 * data : TRequest
  */
-export async function apiPost <TRequest, TResponse> (
+export async function apiPost <TVstup, TVystup> (
     url : String,
-    data : TRequest
-) : Promise <TResponse> {
+    data : TVstup
+) : Promise <TVystup> {
     const response = await fetch(`${API_URL}${url}`,
         {
             method: "Post",
@@ -38,4 +38,36 @@ export async function apiPost <TRequest, TResponse> (
         throw new Error(`HTTP error: ${response.status}`);
     }
     return response.json();
+}
+
+export async function apiPut<TVstup, TVystup>(
+    url: string,
+    data: TVstup
+): Promise<TVystup> {
+
+    const response = await fetch(`${API_URL}${url}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    return response.json();
+}
+
+export async function apiDelete(url: string): Promise<void> {
+
+    const response = await fetch(`${API_URL}${url}`, {
+        method: "DELETE"
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+    }
+
 }
