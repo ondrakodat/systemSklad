@@ -41,6 +41,6 @@ public class SkladRepository implements ISkladRepository {
 
     @Override
     public List<Sklad> najdiSkladyPodleNazvu(String nazev) {
-        return _SkladRepository.findByNazevContainingNazevIgnoreCase(nazev);
+        return _SkladRepository.findByNazevContainingIgnoreCase(nazev);
     }
 }

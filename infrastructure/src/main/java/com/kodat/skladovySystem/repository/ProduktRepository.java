@@ -43,7 +43,7 @@ public class ProduktRepository implements IProduktRepository {
     }
     @Override
     public List<Produkt> najdiProduktPodleNazvu(String nazev) {
-        return _iproduktJpaRepository.findByNazevContainingNazevIgnoreCase(nazev);
+        return _iproduktJpaRepository.findByNazevContainingIgnoreCase(nazev);
     }
 
 

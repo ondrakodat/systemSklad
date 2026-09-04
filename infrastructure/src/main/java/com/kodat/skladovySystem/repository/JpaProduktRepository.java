@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface JpaProduktRepository extends JpaRepository<Produkt, Long> {
-    List<Produkt> findByNazevContainingNazevIgnoreCase(String nazev);
+    List<Produkt> findByNazevContainingIgnoreCase(String nazev);
 }

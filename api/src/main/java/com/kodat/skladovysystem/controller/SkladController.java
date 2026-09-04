@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/api/sklad")
+@RestController
+@RequestMapping("/api/sklad")
 public class SkladController {
     private final ISkladService _ISkladService;
 

@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface JpaSkladRepository extends JpaRepository<Sklad, Long> {
-    List<Sklad> findByNazevContainingNazevIgnoreCase(String nazev);
+    List<Sklad> findByNazevContainingIgnoreCase(String nazev);
 }

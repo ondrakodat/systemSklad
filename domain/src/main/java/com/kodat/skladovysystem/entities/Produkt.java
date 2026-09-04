@@ -25,14 +25,14 @@ public class Produkt {
     @ManyToOne
     @JoinColumn(name = "kategorie_id")
     private Kategorie kategorie;
-    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Column(nullable = false)
     private BigDecimal cena = BigDecimal.valueOf(0);
-    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Column(nullable = false)
     private BigDecimal nakupniCena = BigDecimal.valueOf(0);
     @PositiveOrZero
     private int minimalniSkladovaneMnozstvi;
     private String ean = "";
-    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Column(nullable = false)
     private double hmotnost = 0;
     private boolean stav = false;
     private LocalDateTime datumVytvoreni = LocalDateTime.now();
