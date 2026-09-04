@@ -49,4 +49,10 @@ public class ProduktController {
         _iProduktService.pridejProduktDto(produkt);
     }
 
+    @GetMapping("/hledat")
+    public List<ProduktDto> dejProduktyPodleNazvu(
+           @RequestParam String nazev){
+        return _iProduktService.najdiProduktyPodleNazvu(nazev);
+    }
+
 }

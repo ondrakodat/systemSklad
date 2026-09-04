@@ -4,6 +4,7 @@ import com.kodat.skladovysystem.entities.Zamestnanec;
 import com.kodat.skladovysystem.interfaces.Irepository.IZamestnanecRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -37,6 +38,11 @@ public class ZamestnanecRepository implements IZamestnanecRepository {
     @Override
     public void pridejZamestnance(Zamestnanec zamestnanec) {
         _jpaZamestnanecRepository.save(zamestnanec);
+    }
+
+    @Override
+    public List<Zamestnanec> najdiZamestnancePodleNazvu(String nazev) {
+        return _jpaZamestnanecRepository.findByJmenoContainingIgnoreCaseOrPrijmeniContainingIgnoreCase(nazev, nazev);
     }
 
 }

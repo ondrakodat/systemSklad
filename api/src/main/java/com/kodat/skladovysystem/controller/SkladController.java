@@ -45,5 +45,11 @@ public class SkladController {
         _ISkladService.pridejSklad(dto);
     }
 
+    @GetMapping("/hledat")
+    public List<SkladDto> najiSkladPodleNazvu(
+           @RequestParam String nazev){
+        return _ISkladService.najdiPodleNazvu(nazev);
+    }
+
 
 }

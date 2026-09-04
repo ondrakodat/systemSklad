@@ -132,4 +132,27 @@ public class ProduktService implements IProduktService {
         _IproduktRepository.upravProdukt(existujiciProdukt);
 
     }
+
+    @Override
+    public List<ProduktDto> najdiProduktyPodleNazvu(String nazev) {
+        List<Produkt> vysledek = _IproduktRepository.najdiProduktPodleNazvu(nazev);
+        List<ProduktDto> vysledekDto = new ArrayList<>();
+        for (Produkt p : vysledek){
+            vysledekDto.add(prevedNaProduktDto(p));
+        }
+        return vysledekDto;
+    }
+
+    private ProduktDto prevedNaProduktDto(Produkt p){
+        ProduktDto dto = new ProduktDto();
+        dto.setId(p.getId());
+        dto.setKategorieId(p.getKategorie().getId());
+        dto.setHmotnost(p.getHmotnost());
+        dto.setEan(p.getEan());
+        dto.setMinimalniSkladovaneMnozstvi(p.getMinimalniSkladovaneMnozstvi());
+        dto.setNakupniCena(p.getNakupniCena());
+        dto.setCena(p.getCena());
+        dto.setNazev(p.getNazev());
+        return dto;
+    }
 }

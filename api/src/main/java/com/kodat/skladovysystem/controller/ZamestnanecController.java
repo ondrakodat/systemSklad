@@ -47,6 +47,12 @@ public class ZamestnanecController {
         _iZamestnanecService.upravZamestnanceDto(dto, id);
     }
 
+    @GetMapping("/hledat")
+    public List<ZamestnanecDto> dejZamestnancePodleNazvu(
+           @RequestParam String nazev){
+        return _iZamestnanecService.dejZamestnancePodleNazvu(nazev);
+    }
+
 
 
 }

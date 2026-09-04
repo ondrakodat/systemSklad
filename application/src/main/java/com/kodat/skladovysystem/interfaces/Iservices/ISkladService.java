@@ -11,4 +11,5 @@ public interface ISkladService {
     void pridejSklad(SkladDto sklad);
     void odeberSkladPodleId(long id);
     void upravSkladPodleID(SkladDto dto, long id);
+    List<SkladDto> najdiPodleNazvu(String nazev);
 }

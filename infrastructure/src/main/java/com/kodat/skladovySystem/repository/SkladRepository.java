@@ -38,4 +38,9 @@ public class SkladRepository implements ISkladRepository {
     public void upravSklad(Sklad sklad) {
         _SkladRepository.save(sklad);
     }
+
+    @Override
+    public List<Sklad> najdiSkladyPodleNazvu(String nazev) {
+        return _SkladRepository.findByNazevContainingNazevIgnoreCase(nazev);
+    }
 }

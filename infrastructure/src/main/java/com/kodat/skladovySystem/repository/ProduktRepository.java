@@ -41,6 +41,10 @@ public class ProduktRepository implements IProduktRepository {
     public void upravProdukt(Produkt produkt) {
         _iproduktJpaRepository.save(produkt);
     }
+    @Override
+    public List<Produkt> najdiProduktPodleNazvu(String nazev) {
+        return _iproduktJpaRepository.findByNazevContainingNazevIgnoreCase(nazev);
+    }
 
 
 }

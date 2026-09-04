@@ -11,4 +11,5 @@ public interface IZamestnanecService {
     void odeberZamestnanceDto(long id);
     void pridejZamestnanceDto(ZamestnanecDto dto);
     void upravZamestnanceDto(ZamestnanecDto dto, long id);
+    List<ZamestnanecDto> dejZamestnancePodleNazvu(String nazev);
 }

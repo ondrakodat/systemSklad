@@ -11,4 +11,5 @@ public interface IProduktRepository {
     void odeberProduktpodleId (Long id);
     void pridej(Produkt produkt);
     void upravProdukt(Produkt produkt);
+    List<Produkt> najdiProduktPodleNazvu(String nazev);
 }

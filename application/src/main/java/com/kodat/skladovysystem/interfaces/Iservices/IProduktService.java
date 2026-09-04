@@ -10,5 +10,6 @@ public interface IProduktService {
     void odeberPodleId(Long id);
     List<ProduktDto> najdiVsechny();
     void upravProdukt(ProduktDto produkt, Long id);
+    List<ProduktDto> najdiProduktyPodleNazvu(String nazev);
 
 }

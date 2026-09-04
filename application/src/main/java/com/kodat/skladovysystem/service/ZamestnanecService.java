@@ -53,6 +53,16 @@ public class ZamestnanecService implements IZamestnanecService {
 
     }
 
+    @Override
+    public List<ZamestnanecDto> dejZamestnancePodleNazvu(String nazev) {
+        List<Zamestnanec> vysledek = _IZamestnaecRepository.najdiZamestnancePodleNazvu(nazev);
+        List<ZamestnanecDto> vysledekDto = new ArrayList<>();
+        for (Zamestnanec z : vysledek){
+            vysledekDto.add(prevedZamestnanceNaDto(z));
+        }
+        return vysledekDto;
+    }
+
     private Zamestnanec prevedNaZamestnanceZDto(ZamestnanecDto dto){
         var zamestnanec = new Zamestnanec();
         zamestnanec.setEmail(dto.getEmail());

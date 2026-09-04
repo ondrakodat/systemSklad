@@ -10,4 +10,5 @@ public interface ISkladRepository {
     void odeberSklad(long id);
     void pridejSklad(Sklad sklad);
     void upravSklad(Sklad sklad);
+    List<Sklad> najdiSkladyPodleNazvu(String nazev);
 }
