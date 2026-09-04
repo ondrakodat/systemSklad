@@ -9,7 +9,11 @@ export function ZamestnanciSeznam(){
     useEffect(() => {
         async function nactiZamestnance(){
             const data = await dejZamestnance();
-            console.log(data);
+
+            console.log("DATA:", data);
+            console.log("POCET:", data.length);
+
+            setZamestnanci(data);
             setZamestnanci(data);
         }
         nactiZamestnance();

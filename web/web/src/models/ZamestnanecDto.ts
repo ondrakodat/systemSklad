@@ -3,8 +3,4 @@ export interface ZamestnanecDto {
     jmeno : string,
     prijmeni : string,
     email : string,
-    role : string,
-    aktivni : boolean
-    profilovaFotka : string
-
 }

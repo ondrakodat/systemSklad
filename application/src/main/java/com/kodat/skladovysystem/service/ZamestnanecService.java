@@ -68,6 +68,7 @@ public class ZamestnanecService implements IZamestnanecService {
         zamestnanec.setEmail(dto.getEmail());
         zamestnanec.setJmeno(dto.getJmeno());
         zamestnanec.setPrijmeni(dto.getPrijmeni());
+        zamestnanec.setId(dto.getId());
         return zamestnanec;
     }
 
@@ -76,6 +77,7 @@ public class ZamestnanecService implements IZamestnanecService {
         dto.setEmail(zamestnanec.getEmail());
         dto.setJmeno(zamestnanec.getJmeno());
         dto.setPrijmeni(zamestnanec.getPrijmeni());
+        dto.setId(zamestnanec.getId());
         return dto;
     }
 }
