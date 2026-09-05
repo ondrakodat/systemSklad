@@ -19,23 +19,35 @@ export function ZamestnanciSeznam(){
         nactiZamestnance();
     }, [])
 
+    function ZobrazTlacitko(){
+        return <div>
+            <button className="btn btn-outline-dark"> Zobrazit </button>
+        </div>
+    }
+
     return <div>
         <h1> Seznam zamestnancu </h1>
         <p> Pocet zamestnancu : {zamestnanci.length} </p>
-        {
-            zamestnanci.map((zamestnanec) => (
-                <div key={zamestnanec.id}>
-                    <p>
-                        Jmeno {zamestnanec.jmeno}
-                    </p>
-                    <p>
-                        Prijmeni {zamestnanec.prijmeni}
-                    </p>
-                    <p>
-                        Email {zamestnanec.email}
-                    </p>
-                </div>
-            ))
-        }
+        <table className="table table-striped table-hover text-center table-bordered table condensed table-responsive">
+            <thead>
+                <tr>
+                    <th> Jmeno </th>
+                    <th> Prijmeni </th>
+                    <th> Email </th>
+                    <th> Detail </th>
+                </tr>
+            </thead>
+            <tbody>
+                    {zamestnanci.map((zamestnanec) => (
+                        <tr>
+                            <td>{zamestnanec.jmeno}</td>
+                            <td>{zamestnanec.prijmeni}</td>
+                            <td>{zamestnanec.email}</td>
+                            <td> {ZobrazTlacitko()} </td>
+                        </tr>
+                        )
+                    )}
+            </tbody>
+        </table>
     </div>
 }
