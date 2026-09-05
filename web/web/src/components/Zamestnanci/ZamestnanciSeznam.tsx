@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
-import {dejZamestnance} from "../services/ZamestnanecService.ts";
-import type {ZamestnanecDto} from "../models/ZamestnanecDto.ts";
+import {dejZamestnance} from "../../services/ZamestnanecService.ts";
+import type {ZamestnanecDto} from "../../models/ZamestnanecDto.ts";
 
 
 export function ZamestnanciSeznam(){
@@ -14,7 +14,6 @@ export function ZamestnanciSeznam(){
             console.log("POCET:", data.length);
 
             setZamestnanci(data);
-            setZamestnanci(data);
         }
         nactiZamestnance();
     }, [])
@@ -26,7 +25,6 @@ export function ZamestnanciSeznam(){
     }
 
     return <div>
-        <h1> Seznam zamestnancu </h1>
         <p> Pocet zamestnancu : {zamestnanci.length} </p>
         <table className="table table-striped table-hover text-center table-bordered table condensed table-responsive">
             <thead>
