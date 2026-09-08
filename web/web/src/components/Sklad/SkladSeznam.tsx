@@ -20,8 +20,9 @@ export default function SkladySeznam(){
     }
 
 
-    return (
+    return(
         <div>
+            <p> Nalezeno : {sklady.length} </p>
             <table className="table table-striped table-hover text-center table-bordered table condensed table-responsive">
                 <thead>
                 <tr>
@@ -32,10 +33,10 @@ export default function SkladySeznam(){
                 </thead>
                 <tbody>
                 {sklady.map((sklad) => (
-                        <tr>
+                        <tr key={sklad.id}>
                             <td>{sklad.nazev}</td>
                             <td>{sklad.mesto }</td>
-                            <td> {ZobrazTlacitko()} </td>
+                            <ZobrazTlacitko/>
                         </tr>
                     )
                 )}

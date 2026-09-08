@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ZamestnanciPage from "./pages/ZamestnanciPage.tsx";
 import ProduktPage from "./pages/ProduktPage.tsx";
 import SkladPage from "./pages/Sklad.tsx";
+import {KategoriePage} from "./pages/KategoriePage.tsx";
 
 function App() {
   return <BrowserRouter>
@@ -30,6 +31,14 @@ function App() {
 
       <Route path="/sklady" element={<SkladPage/>}
       />
+
+      <Route
+      path="kategorie"
+      element={
+        <KategoriePage/>
+      }
+      />
+
 
     </Routes>
 

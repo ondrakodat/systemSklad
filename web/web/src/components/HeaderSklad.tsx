@@ -31,6 +31,12 @@ export default function Header() {
                     </li>
 
                     <li className="nav-item">
+                        <NavLink to="/kategorie" className="active nav-link">
+                            Kategorie
+                        </NavLink>
+                    </li>
+
+                    <li className="nav-item">
                         <a className="nav-link disabled" href="#">TODO</a>
                     </li>
 
