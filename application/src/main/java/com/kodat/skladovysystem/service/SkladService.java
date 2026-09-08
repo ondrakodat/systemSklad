@@ -25,7 +25,11 @@ public class SkladService implements ISkladService {
 
     @Override
     public List<SkladDto> dejSklady() {
-        return null;
+        List<SkladDto> dtos = new ArrayList<>();
+        for(Sklad s : _IskladRepository.dejSklady()){
+           dtos.add(upravSkladNaDto(s));
+        }
+        return dtos;
     }
 
     @Override
@@ -56,10 +60,18 @@ public class SkladService implements ISkladService {
 
 
     private Sklad upravSkladZDto(SkladDto dto){
-        return null;
+        Sklad s = new Sklad();
+        s.setId(dto.getId());
+        s.setNazev(dto.getNazev());
+        s.setMesto(dto.getMesto());
+        return s;
     }
 
     private SkladDto upravSkladNaDto(Sklad sklad){
-        return null;
+        SkladDto s = new SkladDto();
+        s.setId(sklad.getId());
+        s.setNazev(sklad.getNazev());
+        s.setMesto(sklad.getMesto());
+        return s;
     }
 }

@@ -25,8 +25,16 @@ export default function Header() {
                     </li>
 
                     <li className="nav-item">
+                        <NavLink to="/sklady" className="active nav-link">
+                            Sklady
+                        </NavLink>
+                    </li>
+
+                    <li className="nav-item">
                         <a className="nav-link disabled" href="#">TODO</a>
                     </li>
+
+
 
                 </ul>
             </div>

@@ -2,6 +2,7 @@ package com.kodat.skladovySystem.repository;
 
 import com.kodat.skladovysystem.entities.Kategorie;
 import com.kodat.skladovysystem.entities.Produkt;
+import com.kodat.skladovysystem.entities.Sklad;
 import com.kodat.skladovysystem.interfaces.Irepository.IProduktRepository;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,13 @@ public class ProduktRepository implements IProduktRepository {
     @Override
     public List<Produkt> najdiProduktPodleNazvu(String nazev) {
         return _iproduktJpaRepository.findByNazevContainingIgnoreCase(nazev);
+    }
+
+    //Vytvoření metody pro přesun Produktu ze skladu do skladu
+    // Je nutno vytvořit objekt Presun, položku přesunu
+    @Override
+    public void presunProduktDoSkladu(Sklad sklad) {
+
     }
 
 

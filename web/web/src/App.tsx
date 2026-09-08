@@ -2,6 +2,7 @@ import HeaderSklad from "./components/HeaderSklad.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ZamestnanciPage from "./pages/ZamestnanciPage.tsx";
 import ProduktPage from "./pages/ProduktPage.tsx";
+import SkladPage from "./pages/Sklad.tsx";
 
 function App() {
   return <BrowserRouter>
@@ -26,6 +27,9 @@ function App() {
       <Route path="/produkty" element={
         <ProduktPage/>
       }/>
+
+      <Route path="/sklady" element={<SkladPage/>}
+      />
 
     </Routes>
 

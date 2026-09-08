@@ -2,6 +2,7 @@ package com.kodat.skladovysystem.interfaces.Irepository;
 
 import com.kodat.skladovysystem.entities.Kategorie;
 import com.kodat.skladovysystem.entities.Produkt;
+import com.kodat.skladovysystem.entities.Sklad;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface IProduktRepository {
     void pridej(Produkt produkt);
     void upravProdukt(Produkt produkt);
     List<Produkt> najdiProduktPodleNazvu(String nazev);
+    void presunProduktDoSkladu(Sklad sklad); //Vytvořit presun
 }
