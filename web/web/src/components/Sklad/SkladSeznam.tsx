@@ -1,9 +1,11 @@
 import {useState, useEffect} from "react";
 import type {SkladDto} from "../../models/SkladDto.ts";
 import {dejSklady} from "../../services/SkladService.ts";
+import SkladCard from "./SkladCard.tsx";
 
 export default function SkladySeznam(){
     const[sklady, setSklady] = useState<SkladDto[]>([]);
+    const[sklad, setSklad] = useState<number | null>(null);
 
     useEffect(() => {
         async function nactiSklady(){
@@ -13,11 +15,6 @@ export default function SkladySeznam(){
         nactiSklady();
     }, [])
 
-    function ZobrazTlacitko(){
-        return <div>
-            <button className="btn btn-outline-dark" > Detail </button>
-        </div>
-    }
 
 
     return(
@@ -28,7 +25,7 @@ export default function SkladySeznam(){
                 <tr>
                     <th> Nazev </th>
                     <th> Mesto </th>
-                    <th> Detail </th>
+                    <th> Další </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,12 +33,21 @@ export default function SkladySeznam(){
                         <tr key={sklad.id}>
                             <td>{sklad.nazev}</td>
                             <td>{sklad.mesto }</td>
-                            <ZobrazTlacitko/>
+                            <td>
+                                <button className="btn btn-outline-dark"
+                                onClick={() => setSklad(sklad.id)}
+                                >
+                                    Podrobnosti
+                                </button>
+                            </td>
                         </tr>
                     )
                 )}
                 </tbody>
             </table>
+            {sklad && (
+                <SkladCard sklad={sklad} />
+            )}
         </div>
     );
 }
