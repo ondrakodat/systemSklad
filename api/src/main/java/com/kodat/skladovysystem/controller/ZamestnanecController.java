@@ -8,7 +8,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/zamestnanec")
-@CrossOrigin(origins = "http://localhost:5173")
+//@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class ZamestnanecController {
     private final IZamestnanecService _iZamestnanecService;
 

@@ -19,7 +19,7 @@ public class ZamestnanecService implements IZamestnanecService {
 
     @Override
     public ZamestnanecDto dejZamestnanceDtoPodleId(long id) {
-        ZamestnanecDto dto = new ZamestnanecDto();
+        ZamestnanecDto dto = prevedZamestnanceNaDto(_IZamestnaecRepository.dejZamestnancePodleId(id));
         return dto;
     }
 
