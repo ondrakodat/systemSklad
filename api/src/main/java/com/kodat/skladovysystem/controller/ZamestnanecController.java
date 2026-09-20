@@ -20,6 +20,12 @@ public class ZamestnanecController {
     @PostMapping
     public void pridejZamestnance(
            @RequestBody ZamestnanecDto dto){
+
+        System.out.println("DTO:");
+        System.out.println(dto.getJmeno());
+        System.out.println(dto.getPrijmeni());
+        System.out.println(dto.getEmail());
+
         _iZamestnanecService.pridejZamestnanceDto(dto);
     }
 

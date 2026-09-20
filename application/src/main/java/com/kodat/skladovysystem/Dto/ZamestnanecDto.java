@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ZamestnanecDto {
-    private long id;
+    private Long id;
     private String jmeno;
     private String prijmeni;
     private String email;

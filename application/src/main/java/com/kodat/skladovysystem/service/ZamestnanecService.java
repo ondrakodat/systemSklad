@@ -68,7 +68,6 @@ public class ZamestnanecService implements IZamestnanecService {
         zamestnanec.setEmail(dto.getEmail());
         zamestnanec.setJmeno(dto.getJmeno());
         zamestnanec.setPrijmeni(dto.getPrijmeni());
-        zamestnanec.setId(dto.getId());
         return zamestnanec;
     }
 
