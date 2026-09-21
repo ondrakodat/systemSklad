@@ -1,7 +1,11 @@
 package com.kodat.skladovysystem.controller;
 
 import com.kodat.skladovysystem.Dto.ZamestnanecDto;
+import com.kodat.skladovysystem.email.EmailService;
+import com.kodat.skladovysystem.emailEntity.EmailDetails;
+import com.kodat.skladovysystem.interfaces.IemailService.IEmailService;
 import com.kodat.skladovysystem.interfaces.Iservices.IZamestnanecService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,22 +15,25 @@ import java.util.List;
 //@CrossOrigin(origins = "http://localhost:5173")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class ZamestnanecController {
-    private final IZamestnanecService _iZamestnanecService;
 
-    public ZamestnanecController(IZamestnanecService iZamestnanecService) {
+    private final IZamestnanecService _iZamestnanecService;
+    private final IEmailService _iEmailService;
+
+    public ZamestnanecController(IZamestnanecService iZamestnanecService, IEmailService iEmailService) {
         _iZamestnanecService = iZamestnanecService;
+        _iEmailService = iEmailService;
     }
 
     @PostMapping
     public void pridejZamestnance(
            @RequestBody ZamestnanecDto dto){
-
-        System.out.println("DTO:");
-        System.out.println(dto.getJmeno());
-        System.out.println(dto.getPrijmeni());
-        System.out.println(dto.getEmail());
-
+        EmailDetails email = new EmailDetails();
+        email.setTeloZpravy("Vitejte, toto je registrační email");
+        email.setPredmetZpravy("Registrace");
+        email.setPrijemce(dto.getEmail());
+        _iEmailService.posliJednoduchyEmail(email);
         _iZamestnanecService.pridejZamestnanceDto(dto);
+
     }
 
     @DeleteMapping("/{id}")

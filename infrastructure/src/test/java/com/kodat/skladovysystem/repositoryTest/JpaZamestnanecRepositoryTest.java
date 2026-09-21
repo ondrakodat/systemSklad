@@ -1,6 +1,6 @@
 package com.kodat.skladovysystem.repositoryTest;
 
-import com.kodat.skladovySystem.repository.JpaZamestnanecRepository;
+import com.kodat.skladovysystem.repository.JpaZamestnanecRepository;
 import com.kodat.skladovysystem.entities.Zamestnanec;
 import com.kodat.skladovysystem.enums.Role;
 import org.junit.jupiter.api.Test;

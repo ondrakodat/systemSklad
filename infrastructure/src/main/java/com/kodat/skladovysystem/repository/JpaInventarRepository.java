@@ -1,4 +1,4 @@
-package com.kodat.skladovySystem.repository;
+package com.kodat.skladovysystem.repository;
 
 import com.kodat.skladovysystem.entities.Inventar;
 import org.springframework.data.jpa.repository.JpaRepository;

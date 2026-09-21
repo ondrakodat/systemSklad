@@ -1,10 +1,9 @@
-package com.kodat.skladovySystem.repository;
+package com.kodat.skladovysystem.repository;
 
 import com.kodat.skladovysystem.entities.Zamestnanec;
 import com.kodat.skladovysystem.interfaces.Irepository.IZamestnanecRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

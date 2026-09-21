@@ -1,4 +1,4 @@
-package com.kodat.skladovySystem.repository;
+package com.kodat.skladovysystem.repository;
 
 import com.kodat.skladovysystem.entities.Rezervace;
 import com.kodat.skladovysystem.interfaces.Irepository.IRezervaceRepository;

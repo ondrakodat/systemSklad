@@ -1,6 +1,5 @@
-package com.kodat.skladovySystem.repository;
+package com.kodat.skladovysystem.repository;
 
-import com.kodat.skladovysystem.entities.Kategorie;
 import com.kodat.skladovysystem.entities.Produkt;
 import com.kodat.skladovysystem.entities.Sklad;
 import com.kodat.skladovysystem.interfaces.Irepository.IProduktRepository;

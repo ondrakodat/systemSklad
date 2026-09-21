@@ -1,4 +1,4 @@
-package com.kodat.skladovySystem.repository;
+package com.kodat.skladovysystem.repository;
 
 public class InventarRepository {
     private final JpaInventarRepository _JpaInventarRepository;

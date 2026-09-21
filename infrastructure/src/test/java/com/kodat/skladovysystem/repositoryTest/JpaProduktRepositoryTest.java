@@ -1,6 +1,6 @@
 package com.kodat.skladovysystem.repositoryTest;
 
-import com.kodat.skladovySystem.repository.JpaProduktRepository;
+import com.kodat.skladovysystem.repository.JpaProduktRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
