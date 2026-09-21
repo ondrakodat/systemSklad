@@ -31,7 +31,8 @@ public class ZamestnanecController {
         email.setTeloZpravy("Vitejte, toto je registrační email");
         email.setPredmetZpravy("Registrace");
         email.setPrijemce(dto.getEmail());
-        _iEmailService.posliJednoduchyEmail(email);
+        String vysledek = _iEmailService.posliJednoduchyEmail(email);
+        System.out.printf(vysledek);
         _iZamestnanecService.pridejZamestnanceDto(dto);
 
     }
