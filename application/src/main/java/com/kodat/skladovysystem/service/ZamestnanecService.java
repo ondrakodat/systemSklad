@@ -3,6 +3,7 @@ package com.kodat.skladovysystem.service;
 import com.kodat.skladovysystem.Dto.ZamestnanecDto;
 import com.kodat.skladovysystem.entities.Zamestnanec;
 import com.kodat.skladovysystem.interfaces.Irepository.IZamestnanecRepository;
+import com.kodat.skladovysystem.interfaces.IsecretService.ISecretHashService;
 import com.kodat.skladovysystem.interfaces.Iservices.IZamestnanecService;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import java.util.List;
 @Service
 public class ZamestnanecService implements IZamestnanecService {
     private final IZamestnanecRepository _IZamestnaecRepository;
+    private final ISecretHashService _IServiceHashService;
 
-    public ZamestnanecService(IZamestnanecRepository iZamestnaecRepository) {
+    public ZamestnanecService(IZamestnanecRepository iZamestnaecRepository, ISecretHashService iServiceHashService) {
         _IZamestnaecRepository = iZamestnaecRepository;
+        _IServiceHashService = iServiceHashService;
     }
 
     @Override
@@ -63,13 +66,7 @@ public class ZamestnanecService implements IZamestnanecService {
         return vysledekDto;
     }
 
-    private Zamestnanec prevedNaZamestnanceZDto(ZamestnanecDto dto){
-        var zamestnanec = new Zamestnanec();
-        zamestnanec.setEmail(dto.getEmail());
-        zamestnanec.setJmeno(dto.getJmeno());
-        zamestnanec.setPrijmeni(dto.getPrijmeni());
-        return zamestnanec;
-    }
+
 
     private ZamestnanecDto prevedZamestnanceNaDto(Zamestnanec zamestnanec){
         var dto = new ZamestnanecDto();
@@ -78,5 +75,14 @@ public class ZamestnanecService implements IZamestnanecService {
         dto.setPrijmeni(zamestnanec.getPrijmeni());
         dto.setId(zamestnanec.getId());
         return dto;
+    }
+
+    private Zamestnanec prevedNaZamestnanceZDto(ZamestnanecDto dto){
+        var zamestnanec = new Zamestnanec();
+        zamestnanec.setEmail(dto.getEmail());
+        zamestnanec.setJmeno(dto.getJmeno());
+        zamestnanec.setPrijmeni(dto.getPrijmeni());
+        zamestnanec.setHeslo(_IServiceHashService.vytvorHeslo(dto.getHeslo()));
+        return zamestnanec;
     }
 }

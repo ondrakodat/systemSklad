@@ -16,4 +16,5 @@ public class ZamestnanecDto {
     private String jmeno;
     private String prijmeni;
     private String email;
+    private String heslo;
 }

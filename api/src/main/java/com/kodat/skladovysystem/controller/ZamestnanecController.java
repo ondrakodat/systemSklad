@@ -26,7 +26,8 @@ public class ZamestnanecController {
 
     @PostMapping
     public void pridejZamestnance(
-           @RequestBody ZamestnanecDto dto){
+           @RequestBody ZamestnanecDto dto
+           ){
         EmailDetails email = new EmailDetails();
         email.setTeloZpravy("Vitejte, toto je registrační email");
         email.setPredmetZpravy("Registrace");
