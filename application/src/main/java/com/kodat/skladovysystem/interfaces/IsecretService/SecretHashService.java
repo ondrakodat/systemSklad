@@ -13,7 +13,13 @@ public class SecretHashService implements ISecretHashService{
 
     @Override
     public String vytvorHeslo(String heslo) {
-        return encoder.encode(heslo);
+        String hesloHash = encoder.encode(heslo);
+        System.out.println("Encoder : " + encoder);
+        System.out.println("Heslo : " + heslo);
+        System.out.printf("Hesh : " + hesloHash);
+        if(hesloHash == null)
+            return "Chyba při hashování hesla";
+        return hesloHash;
     }
 
     @Override

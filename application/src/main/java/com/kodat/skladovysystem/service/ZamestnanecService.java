@@ -82,7 +82,11 @@ public class ZamestnanecService implements IZamestnanecService {
         zamestnanec.setEmail(dto.getEmail());
         zamestnanec.setJmeno(dto.getJmeno());
         zamestnanec.setPrijmeni(dto.getPrijmeni());
+        System.out.println("Heslo v metode prevedNaZemestnance : " + dto.getHeslo());
+        if(_IServiceHashService.vytvorHeslo(dto.getHeslo())!= null)
         zamestnanec.setHeslo(_IServiceHashService.vytvorHeslo(dto.getHeslo()));
+        else
+            zamestnanec.setHeslo("NastalaChyba");
         return zamestnanec;
     }
 }
