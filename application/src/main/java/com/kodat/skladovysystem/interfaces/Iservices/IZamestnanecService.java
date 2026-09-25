@@ -12,4 +12,5 @@ public interface IZamestnanecService {
     void pridejZamestnanceDto(ZamestnanecDto dto);
     void upravZamestnanceDto(ZamestnanecDto dto, long id);
     List<ZamestnanecDto> dejZamestnancePodleNazvu(String nazev);
+    boolean overPrihlaseni(String heslo, String email);
 }

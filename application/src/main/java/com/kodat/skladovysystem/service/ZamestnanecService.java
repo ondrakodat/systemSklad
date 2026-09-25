@@ -66,6 +66,12 @@ public class ZamestnanecService implements IZamestnanecService {
         return vysledekDto;
     }
 
+    @Override
+    public boolean overPrihlaseni(String heslo, String email) {
+
+        _IServiceHashService.overHeslo(heslo, _IZamestnaecRepository.najdiPodleEmailu(email).getEmail());
+        return true;
+    }
 
 
     private ZamestnanecDto prevedZamestnanceNaDto(Zamestnanec zamestnanec){

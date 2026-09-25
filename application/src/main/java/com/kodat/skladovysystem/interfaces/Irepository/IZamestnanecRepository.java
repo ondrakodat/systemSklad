@@ -11,4 +11,5 @@ public interface IZamestnanecRepository {
     void upravZamestnance(Zamestnanec zamestnanec);
     void pridejZamestnance(Zamestnanec zamestnanec);
     List<Zamestnanec> najdiZamestnancePodleNazvu(String jmeno);
+    Zamestnanec najdiPodleEmailu(String email);
 }

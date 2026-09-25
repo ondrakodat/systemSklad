@@ -44,4 +44,9 @@ public class ZamestnanecRepository implements IZamestnanecRepository {
         return _jpaZamestnanecRepository.findByJmenoContainingIgnoreCaseOrPrijmeniContainingIgnoreCase(nazev, nazev);
     }
 
+    @Override
+    public Zamestnanec najdiPodleEmailu(String email) {
+        return _jpaZamestnanecRepository.findByEmail(email);
+    }
+
 }

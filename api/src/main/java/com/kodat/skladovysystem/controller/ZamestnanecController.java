@@ -28,12 +28,6 @@ public class ZamestnanecController {
     public void pridejZamestnance(
            @RequestBody ZamestnanecDto dto
            ){
-//        EmailDetails email = new EmailDetails();
-//        email.setTeloZpravy("Vitejte, toto je registrační email");
-//        email.setPredmetZpravy("Registrace");
-//        email.setPrijemce(dto.getEmail());
-//        String vysledek = _iEmailService.posliJednoduchyEmail(email);
-//        System.out.printf(vysledek);
         System.out.println("Heslo v pridejZamestnance : " + dto .getHeslo());
         _iZamestnanecService.pridejZamestnanceDto(dto);
 
@@ -69,6 +63,13 @@ public class ZamestnanecController {
     public List<ZamestnanecDto> dejZamestnancePodleNazvu(
            @RequestParam String nazev){
         return _iZamestnanecService.dejZamestnancePodleNazvu(nazev);
+    }
+
+    @GetMapping("/prihlaseni")
+    public boolean overPrihlaseni(@RequestParam String heslo
+    , @RequestParam String email
+    ){
+        return _iZamestnanecService.overPrihlaseni(heslo, email);
     }
 
 
