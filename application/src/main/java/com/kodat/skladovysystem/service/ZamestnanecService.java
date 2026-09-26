@@ -68,9 +68,10 @@ public class ZamestnanecService implements IZamestnanecService {
 
     @Override
     public boolean overPrihlaseni(String heslo, String email) {
-
-        _IServiceHashService.overHeslo(heslo, _IZamestnaecRepository.najdiPodleEmailu(email).getEmail());
-        return true;
+        Zamestnanec z = _IZamestnaecRepository.najdiPodleEmailu(email);
+        if(z == null)
+            throw new RuntimeException("Zamestnanec se podle emailu nenasel");
+        return  _IServiceHashService.overHeslo(z.getHeslo(), heslo);
     }
 
 

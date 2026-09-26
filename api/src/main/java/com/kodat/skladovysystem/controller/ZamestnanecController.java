@@ -5,6 +5,7 @@ import com.kodat.skladovysystem.email.EmailService;
 import com.kodat.skladovysystem.emailEntity.EmailDetails;
 import com.kodat.skladovysystem.interfaces.IemailService.IEmailService;
 import com.kodat.skladovysystem.interfaces.Iservices.IZamestnanecService;
+import com.kodat.skladovysystem.service.ZamestnanecDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +19,12 @@ public class ZamestnanecController {
 
     private final IZamestnanecService _iZamestnanecService;
     private final IEmailService _iEmailService;
+    private final ZamestnanecDetailService Detailservice;
 
-    public ZamestnanecController(IZamestnanecService iZamestnanecService, IEmailService iEmailService) {
+    public ZamestnanecController(IZamestnanecService iZamestnanecService, IEmailService iEmailService, ZamestnanecDetailService detailservice) {
         _iZamestnanecService = iZamestnanecService;
         _iEmailService = iEmailService;
+        Detailservice = detailservice;
     }
 
     @PostMapping
@@ -65,12 +68,12 @@ public class ZamestnanecController {
         return _iZamestnanecService.dejZamestnancePodleNazvu(nazev);
     }
 
-    @GetMapping("/prihlaseni")
-    public boolean overPrihlaseni(@RequestParam String heslo
-    , @RequestParam String email
-    ){
-        return _iZamestnanecService.overPrihlaseni(heslo, email);
-    }
+//    @GetMapping("/prihlaseni")
+//    public boolean overPrihlaseni(@RequestParam String heslo
+//    , @RequestParam String email
+//    ){
+//        return Detailservice.loadUserByUsername(email);
+//    }
 
 
 
