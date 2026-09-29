@@ -66,13 +66,13 @@ public class ZamestnanecService implements IZamestnanecService {
         return vysledekDto;
     }
 
-    @Override
-    public boolean overPrihlaseni(String heslo, String email) {
-        Zamestnanec z = _IZamestnaecRepository.najdiPodleEmailu(email);
-        if(z == null)
-            throw new RuntimeException("Zamestnanec se podle emailu nenasel");
-        return  _IServiceHashService.overHeslo(z.getHeslo(), heslo);
-    }
+//    @Override
+//    public boolean overPrihlaseni(String heslo, String email) {
+//        Zamestnanec z = _IZamestnaecRepository.najdiPodleEmailu(email);
+//        if(z == null)
+//            throw new RuntimeException("Zamestnanec se podle emailu nenasel");
+//        return  _IServiceHashService.overHeslo(z.getHeslo(), heslo);
+//    }
 
 
     private ZamestnanecDto prevedZamestnanceNaDto(Zamestnanec zamestnanec){
@@ -89,9 +89,9 @@ public class ZamestnanecService implements IZamestnanecService {
         zamestnanec.setEmail(dto.getEmail());
         zamestnanec.setJmeno(dto.getJmeno());
         zamestnanec.setPrijmeni(dto.getPrijmeni());
-        System.out.println("Heslo v metode prevedNaZemestnance : " + dto.getHeslo());
-        if(_IServiceHashService.vytvorHeslo(dto.getHeslo())!= null)
-        zamestnanec.setHeslo(_IServiceHashService.vytvorHeslo(dto.getHeslo()));
+        String hesloHash = _IServiceHashService.vytvorHeslo(dto.getHeslo());
+        if(hesloHash != null)
+        zamestnanec.setHeslo(hesloHash);
         else
             zamestnanec.setHeslo("NastalaChyba");
         return zamestnanec;
