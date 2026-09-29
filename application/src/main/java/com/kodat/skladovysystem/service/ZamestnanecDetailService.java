@@ -4,7 +4,9 @@ import com.kodat.skladovysystem.interfaces.Irepository.IZamestnanecRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ZamestnanecDetailService implements UserDetailsService {
     private final IZamestnanecRepository _repository;
 

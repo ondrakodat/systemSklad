@@ -5,6 +5,7 @@ import com.kodat.skladovysystem.jwt.JwtAuthenticatorFiltr;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,7 +25,9 @@ public class SecurityConfig  {
         http.addFilterBefore(filtr, UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("api/login").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .requestMatchers("/api/login").permitAll()
+                .requestMatchers("/api/zamestnanec/**").permitAll()
                 .anyRequest().authenticated()
         );
 
