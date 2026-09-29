@@ -17,8 +17,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 @Configuration
 public class SecurityConfig extends AbstractSecurityWebApplicationInitializer {
 
-    @Autowired
-    private JwtAuthenticationFilter fitler;
+
 
 
 }
